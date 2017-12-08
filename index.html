@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="css/index.css"/>
+    <link rel="stylesheet" type="text/css" href="css/swiper.min.css" />
+</head>
+<body>
+	<nav id="menu" class="slideout-menu slideout-menu-left">
+	  <div class="good_scroll" id="good_level1">
+	  	<ul class="good_list">
+		  	<li>全部</li>
+		  	<li class="li">女装</li>
+		  	<li class="li">女童</li>
+		  	<li class="li">秀款</li>
+		  	<li class="li">男款</li>
+		  	<li class="li">其他</li>
+		</ul>
+	  </div>
+	  
+	  <div class="details_info" style="display: none;"> 
+		  <div class="back">返回</div>
+		  <div class="good_scroll">
+			<ul class="good_list">
+				<li>套装</li>
+				<li>连衣裙</li>
+				<li>连衣裤</li>
+				<li>吊带裙</li>
+			</ul>
+		  </div>
+	  </div>
+	  
+	  <div class="login_block">
+	  	<a href="javascript:;">登录</a>
+	  </div>
+	</nav>
+	
+	<main id="panel">
+	    <div class="return"><img src="img/caidan@2x.png" alt="" /></div>
+	    <div class="control">
+	    	<!-- 顶部提示信息 -->
+		    <div class="wrap">
+		    	<div class="top-tip">	
+			        <span class="refresh-hook">下拉刷新</span>
+			    </div>
+		    	<!--  滑动区域的所有元素   -->
+		    	<div class="content">
+		    	<div class="swiper-container" id="lunbo">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide"><img src="img/lunbo3.png" style="width: 100%;"></div>
+							<div class="swiper-slide"><img src="img/lunbo2.jpg" style="width: 100%;"></div>
+							<div class="swiper-slide"><img src="img/lunbo4.png" style="width: 100%;"></div>
+						</div>
+						<div class="swiper-pagination" id="sy_dd"></div>
+				</div>
+		  		<div class="classification">
+			  		<ul>
+				  	 	<li>
+				  	 		<img src="img/gaogen@2x.png" alt="" />
+				  	 		<p>快时尚</p>
+				  	 	</li>
+				  	 	<li>
+				  	 		<img src="img/maozi@2x.png" alt="" />
+				  	 		<p>秀款</p>
+				  	 	</li>
+			  	 	</ul>
+			  	</div>
+			  	<!--  秀款  -->
+			    <div class="xiu_wrap">
+				  	<ul>
+				  		<li>
+				  			<img src="img/good22.png" alt="" />
+				  			<div class="tip">
+				  			   <a href="javascript:;">
+				  			   		<p class="tit">2018年秀款</p>
+				  			      	<p class="buy">更多女装，点击购买>></p>
+				  			   </a>
+				  			</div>
+				  		</li>
+				  		<li>
+				  			<img src="img/good11.png" alt="" />
+				  			<div class="tip">
+				  			   <a href="javascript:;">
+				  			   		<p class="tit">BOYˊS</p>
+				  			      	<p class="buy">更多男童款，点击购买>></p>
+				  			   </a>
+				  			</div>
+				  		</li>
+				  		<li>
+				  			<img src="img/good00.png" alt="" />
+				  			<div class="tip">
+				  			   <a href="javascript:;">
+				  			   		<p class="tit">GIRLˊS</p>
+				  			      	<p class="buy">更多女童款，点击购买>></p>
+				  			   </a>
+				  			</div>
+				  		</li>
+				  	</ul>
+			    </div>
+			  	<!--  热卖   -->
+			  	<div class="hot_list">
+			  	 	<ul>
+				  	 	<li>
+				  	 		<a href="javascript:;"><img src="img/hot11.jpg"/></a>
+				  	 		<a href="javascript:;"><img src="img/hot22.jpg"/></a>
+				  	 	</li>
+				  	 	<li>
+				  	 		<a href="javascript:;"><img src="img/hot33.jpg"/></a>
+				  	 		<a href="javascript:;"><img src="img/hot44.jpg"/></a>
+				  	 	</li>
+				  	 	<li>
+				  	 		<a href="javascript:;"><img src="img/hot55.jpg"/></a>
+				  	 		<a href="javascript:;"><img src="img/hot66.jpg"/></a>
+				  	 	</li>
+			  	 	</ul>
+			  	</div>
+		    </div>
+		    <!--
+		    	更新成功数据的提示
+		    -->
+		    <div class="alert alert-hook">刷新成功</div>
+		  	<!-- 
+	          1、底部提示信息 
+	          2、这里有一种情况,就是没有更多数据时,这里的文本应该显示"暂无更多数据"
+      	  	-->
+		  	<div class="bottom-tip">
+	          <span class="loading-hook">查看更多</span>
+	     	</div>
+		  </div>
+		  	
+	  </div>
+	  
+	</main>
+</body>
+<script src="js/slideout.min.js"></script>	
+<script src="js/swiper.min.js"></script>
+<script src="js/jquery-1.8.3.min.js"></script>	
+<script type="text/javascript" src="js/bscroll.min.js"></script>
+<script>
+  
+	document.documentElement.style.fontSize = innerWidth / 16 + 'px';
+	onresize = function() {
+		document.documentElement.style.fontSize = innerWidth / 16 + 'px';
+	}
+	
+	/*  轮播   */
+	var swiper = new Swiper('#lunbo', {
+			loop: true,
+			autoplay: 2000,
+			autoplayDisableOnInteraction: false,
+			pagination: '.swiper-pagination',
+			paginationClickable: true,
+			speed: 1000,
+		})		
+	
+	
+	/*  侧滑菜单  */
+    var slideout = new Slideout({
+	  'panel': document.getElementById('panel'),
+	  'menu': document.getElementById('menu'),
+	  'padding': (innerWidth*72)/100,
+	  'tolerance': 70,
+	  'touch': false
+	});
+	
+	document.querySelector('.return').addEventListener('click', function() {			  	
+	  	slideout.toggle();
+	});
+	
+	function close(eve) {
+	  eve.preventDefault();
+	  slideout.close();
+	}
+	
+	slideout
+	  .on('beforeopen', function() {
+	this.panel.classList.add('panel-open');
+	  })
+	  .on('open', function() {
+	this.panel.addEventListener('click', close);
+	  })
+	  .on('beforeclose', function() {
+	this.panel.classList.remove('panel-open');
+	this.panel.removeEventListener('click', close);
+	  }); 
+	  /*  侧滑菜单  */
+	
+	/*侧边栏的点击效果*/
+	$("#good_level1 li.li").on("click",function(){
+	 	$("#good_level1").fadeOut();
+	 	$(".details_info").fadeIn();
+	})
+	 
+	$("#menu .details_info .back").on("click",function(){
+	 	$(".details_info").fadeOut();
+	 	$("#good_level1").fadeIn();
+	})
+	 
+
+	/*  
+	   	解决滚动区域内一部分元素被隐藏的方法：
+	   		1.如果有图片的时候建议给图片一定的高度， 否则会会出现wrap元素translateY 最大的滑动距离计算失误，
+		导致一部分元素被隐藏。
+			2.在所有图片加载完之后再 refresh
+	*/
+
+	//构造函数  
+	function Lscroll(elm,opt){
+		//betterScroll 的配置项
+		var scrollOpt = {
+			probeType: 1,
+			scrollY: true,
+	    	click: true,    // false 阻止浏览器的原生 click 事件
+	    	bounce: true,   //开启回弹动画
+	    	scrollbar: {	//开启滚动条
+	    		fade: true
+	    	}, 
+	    	pullUpLoad:{  //上拉加载
+	    		threshold: -10
+	    	}  
+		}
+		this.control = elm;  //dom 元素
+		this.scrollOpt = scrollOpt;
+		
+		var _opt = {
+			isPullDown: true  //是否开启下拉刷新
+		};
+		Object.assign(_opt,opt);
+		this._opt = _opt;  //Lscroll 配置项
+		this._init(); 
+	};
+	
+	Lscroll.prototype._init = function(){
+		this.BScroll = new BScroll(this.control,this.scrollOpt);
+		this._tipsDom();   //提示的dom 元素
+		
+		if(this._opt.isPullDown) {
+			this._scrollEvent();  //滚动事件
+			this._scrollEnd();	  //滚动结束事件	
+			this._pullDown();	  //下拉刷新功能	
+		} else {
+			this.topTip.style.display = "none";
+		};
+		this._pullUp();		  //上拉加载功能	
+	};
+	
+	Lscroll.prototype._tipsDom = function(){
+		this.alertTip = document.querySelector(this.control+' .alert-hook');
+		this.topTip = document.querySelector(this.control+' .refresh-hook');
+    	this.bottomTip = document.querySelector(this.control+' .loading-hook');
+	};
+	
+	Lscroll.prototype._scrollEvent = function(){
+		var _this = this;
+		this.BScroll.on('scroll', function(position){
+			var scrollY = position.y; 
+			if(scrollY > 50){
+				_this.topTip.innerText = "释放立即刷新"
+			}
+		});
+	};
+	
+	Lscroll.prototype._scrollEnd = function(){
+		var _this = this;
+		this.BScroll.on('scrollEnd', function(){
+			_this.topTip.innerText = "下拉刷新";
+		});
+	};
+	
+	Lscroll.prototype._pullDown = function(){
+		var _this = this;
+		var BScroll = this.BScroll;
+		//触摸事件
+		BScroll.on("touchEnd",function(position){
+			var scrollY = position.y; 
+			if(scrollY > 50){
+				if(this.isPulling ){
+					return;
+				};
+				this.isPulling = true;
+				// ajax 请求数据 
+				_this._opt.pullDownFn(showSuccess.bind(_this));				
+				// 数据请求结束显示成功效果
+				function showSuccess(){
+					this.alertTip.style.display = "block";
+					setTimeout(function(){ 
+						var BScroll = this.BScroll;
+						this.alertTip.style.display = "none";
+						BScroll.isPulling = false;
+					}.bind(this),900)
+				}
+			}
+		});
+	};
+	
+	Lscroll.prototype._pullUp = function(){
+		var _this = this;
+		var BScroll = this.BScroll;
+		BScroll.on("pullingUp",function(){
+			_this.bottomTip.innerText = '加载中...';
+			// ajax 请求数据调用 
+			_this._opt.PullUpFn(callback.bind(_this));
+			function callback(){
+				this.bottomTip.innerText = '加载更多';
+				BScroll.finishPullUp();
+				BScroll.refresh();
+			}
+		})
+	};
+	
+	new Lscroll(".control",{
+//		isPullDown: false   是否开启下拉刷新
+		pullDownFn: function(callback){  //下拉刷新的ajax 请求
+			//ajax 请求数据代码
+			setTimeout(function(){
+				console.log("下拉刷新")
+				callback(); //显示刷新成功
+			},2000)
+		},
+		PullUpFn: function(callback){	//上拉加载的ajax请求
+			//ajax 请求数据代码
+			setTimeout(function(){
+				console.log("上拉加载");
+				callback(); //关闭上拉加载 效果
+			},2000)
+		}
+	})
+	
+</script>
+</html>
