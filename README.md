@@ -6,7 +6,7 @@ https://mysucceed.github.io/slideout-better-scroll/
 
 轮播图slide
 
-https://mysucceed.github.io/slideout-better-scroll/slide
+https://mysucceed.github.io/slideout-better-scroll/slider
 
 城市选择city
 
